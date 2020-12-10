@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %}
+    Editar Empleado
+{% endblock titulo %}
+
+
+{% block content %}
+    {% include 'includes/header.html' %}
+
+    <div class="container">
+        <div class="row mt-5">
+            <h1 class="col-12">
+                Modificar empleado
+            </h1>
+            <div class="col-lg-12">
+                <div class="row">
+                    <form  method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="col mb-4">
+                            <label> Nombres:
+                                {{form.first_name}} 
+                            </label>                        
+                        </div>
+                        <div class="col mb-4">
+                            <label> Apellidos:
+                                {{form.last_name}} 
+                            </label>                        
+                        </div>  
+                        <div class="col mb-4">
+                            <label> Trabajo:
+                                {{form.job}} 
+                            </label>                        
+                        </div>   
+                        <div class="col mb-4">
+                            <label> Àrea:
+                                {{form.departamento}} 
+                            </label>                        
+                        </div>
+                        <div class="col mb-4">
+                            <label> Habilidades Extra:
+                                {{form.habilidades}} 
+                            </label>                        
+                        </div>
+                        <div class="col mb-4">
+                            <label> Avatar:
+                                {{form.avatar}} 
+                            </label>                        
+                        </div>
+                        <button class="btn btn-primary" type="submit">Guardar</button>
+                    </form> 
+                </div>         
+                
+
+                   
+                                  
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+    
+
+

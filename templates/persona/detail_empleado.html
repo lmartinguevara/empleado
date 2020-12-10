@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %}
+    {{object.first_name}}
+{% endblock titulo %}
+    
+
+{% block content %}
+    {% include 'includes/header.html' %}    
+     
+    <div class="container">
+        <div class="row">
+            <h1 class="col-12 mt-5">Detalle Empleado: {{empleado.first_name}}</h1>
+            <div class="col-4">
+                <!-- Card -->
+                <div class="card">
+
+                    <!-- Card image -->
+                    
+                    {% if empleado.avatar  %}
+                    <img class="card-img-top" src="{{empleado.avatar.url}}" alt="Card image cap">
+                    {% else %}
+                    <img class="card-img-top" src="https://lh3.googleusercontent.com/proxy/pUyEVQjrvw2a3m9XMibHogWKRBkkT1JpjYY3VpfFEW3GACGImsEFXujJYF2xdrJdfg4SRMaaoKXKj53eMRZLF6m68F-7Lih7EB8Wj-DzFzSqk35FocvrSTTQckShebK2og" alt="Card image cap">
+                    {% endif %}
+                        
+                    
+                
+                    <!-- Card content -->
+                    <div class="card-body">
+                
+                    <!-- Title -->
+                    <h4 class="card-title">{{empleado.get_job_display}}</h4>
+                    <!-- Text -->
+                    <p class="card-text">{{empleado.first_name}} {{empleado.last_name}}</p>
+                    <p class="card-text">{{empleado.departamento}}</p>
+                    <p><span class="badge badge-primary">Habilidades</span></p>
+                    <ul class="list-unstyled">
+                        
+                        {% for h in empleado.habilidades.all  %}
+                            <li>{{h.habilidad}}</li>
+                        {% endfor %}
+                            
+                    </ul>
+                    <p class="card-text">{{empleado.habilidades}}</p>
+                    <!-- Button -->
+                    
+                
+                    </div>
+                
+                </div>
+                <!-- Card -->
+            
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+    

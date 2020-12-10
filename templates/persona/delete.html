@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %}
+    Eliminar Empleado
+{% endblock titulo %}
+
+
+{% block content %}
+    {% include 'includes/header.html' %}
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col">
+                <h1>Eliminar Empleado: {{object.first_name}} {{object.last_name}}</h1>
+            </div>
+            <div class="w-100"></div>
+            <div class="col">
+                <form method="post">
+                    {% csrf_token %}
+                    <p  >Confirme que desea eliminar</p>
+                    
+                    <button class="btn btn-danger m-0" type="submit">Confirmar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+    
+
+
+<h1>Eliminar</h1>
+
